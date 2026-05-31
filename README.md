@@ -39,9 +39,44 @@ and the existing paths will pick them up. Until then, the
 
 ### Blog / Insights
 
-`lib/posts.ts` holds the post metadata. The route `/blog/[slug]` currently
-renders placeholder body text — wire in MDX (`@next/mdx`) or a CMS
-(Contentlayer, Sanity, Notion) when ready.
+Posts live as MDX files in **`content/blog/`** with frontmatter:
+
+```mdx
+---
+title: "Your post title"
+excerpt: "One-line summary shown on the index."
+date: "2026-05-01"
+category: "Engineering"
+---
+
+Your **MDX** body here. Standard markdown plus full JSX/component support.
+```
+
+The blog list (`/blog`) and detail (`/blog/[slug]`) routes are
+statically generated from the file system at build time via
+`lib/posts.server.ts`. Custom typography components live in
+`components/mdx.tsx` — extend that file to add new MDX components
+(callouts, custom embeds, etc).
+
+### App detail pages
+
+Every app in `lib/apps.ts` automatically gets a static page at
+`/apps/<slug>`. Metadata, related apps and a hero CTA are wired
+up for you — just keep the data file up to date.
+
+### Screenshots / videos (auto-detected)
+
+Drop hero media into `public/apps/<slug>/`:
+
+```
+public/apps/rca-flow/hero.png      # any of .png .webp .jpg .jpeg
+public/apps/rca-flow/hero.mp4      # optional autoplay loop
+```
+
+`lib/apps.server.ts` checks the filesystem at build time and the
+`<AppMockup>` component will render a real `<Image>` (or `<video>` if
+present) automatically. Until you add media, the abstract placeholder UI
+is shown.
 
 ### Brand
 

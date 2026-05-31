@@ -1,17 +1,25 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { CursorAura } from "@/components/CursorAura";
-import { getPost, posts } from "@/lib/posts";
+import { mdxComponents } from "@/components/mdx";
+import { getPost, getPosts } from "@/lib/posts.server";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
+  const posts = await getPosts();
   return posts.map((p) => ({ slug: p.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPost(params.slug);
   if (!post) return {};
   return {
     title: post.title,
@@ -19,9 +27,16 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
   };
 }
 
-export default function PostPage({ params }: { params: { slug: string } }) {
-  const post = getPost(params.slug);
+export default async function PostPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPost(params.slug);
   if (!post) notFound();
+
+  const allPosts = await getPosts();
+  const more = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <>
@@ -38,7 +53,7 @@ export default function PostPage({ params }: { params: { slug: string } }) {
           </Link>
 
           <header className="mt-10">
-            <div className="flex items-center gap-3 text-xs text-slate-500">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-slate-500">
               <span className="font-mono uppercase tracking-widest text-gold-300/80">
                 {post.category}
               </span>
@@ -61,22 +76,45 @@ export default function PostPage({ params }: { params: { slug: string } }) {
             </p>
           </header>
 
-          <div className="prose prose-invert mt-16 max-w-none text-slate-300">
-            <p>
-              This is a placeholder post body. Drop your real MDX content or
-              CMS-driven markdown into the blog data layer to populate this
-              page.
-            </p>
-            <p>
-              The site is structured so insights, apps and the studio
-              positioning all share the same design system — see{" "}
-              <Link href="/" className="text-gold-300 hover:text-gold-200">
-                the home page
-              </Link>{" "}
-              for the full picture.
-            </p>
+          <div className="hairline mt-12" />
+
+          <div className="mt-2">
+            <MDXRemote
+              source={post.content}
+              components={mdxComponents}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                },
+              }}
+            />
           </div>
         </article>
+
+        {more.length > 0 && (
+          <section className="container-page mt-32 max-w-3xl border-t border-white/[0.06] pt-16">
+            <h2 className="text-sm font-medium uppercase tracking-[0.18em] text-slate-400">
+              Keep reading
+            </h2>
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
+              {more.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  className="glass-panel glass-panel-hover group block p-6 cursor-pointer"
+                >
+                  <span className="text-[11px] font-mono uppercase tracking-widest text-gold-300/80">
+                    {p.category}
+                  </span>
+                  <h3 className="mt-3 font-display text-2xl text-slate-50 transition-colors group-hover:text-gold-100">
+                    {p.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-400">{p.excerpt}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        )}
       </main>
       <Footer />
     </>

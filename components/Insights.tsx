@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { posts } from "@/lib/posts";
+import { type PostMeta } from "@/lib/posts.server";
 import { Reveal, Stagger, StaggerItem } from "./motion/Reveal";
 
-export function Insights() {
+export function Insights({ posts }: { posts: PostMeta[] }) {
+  if (posts.length === 0) return null;
+
   return (
     <section id="insights" className="relative border-t border-white/[0.06] py-28 md:py-40">
       <div className="container-page">

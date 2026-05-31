@@ -1,14 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowUpRight, Play } from "lucide-react";
-import { apps } from "@/lib/apps";
+import { type EnrichedApp } from "@/lib/apps.server";
 import { AppMockup } from "./AppMockup";
 import { Reveal, Stagger, StaggerItem } from "./motion/Reveal";
 import { cn } from "@/lib/utils";
 
-export function AppsShowcase() {
+export function AppsShowcase({ apps }: { apps: EnrichedApp[] }) {
   return (
     <section id="apps" className="relative py-28 md:py-40">
       <div className="container-page">
@@ -17,7 +16,7 @@ export function AppsShowcase() {
             <span className="h-px w-6 bg-gold-300/60" /> The Portfolio
           </p>
           <h2 className="mt-5 text-display-lg font-medium text-balance text-slate-50">
-            Six apps in production.{" "}
+            {apps.length} apps in production.{" "}
             <span className="font-display italic text-slate-400">
               Each one solving a real, often unsexy, business problem.
             </span>
@@ -31,9 +30,7 @@ export function AppsShowcase() {
               key={app.slug}
               className={cn(
                 "col-span-6",
-                i % 5 === 0 || i % 5 === 4
-                  ? "md:col-span-4"
-                  : "md:col-span-2"
+                i % 5 === 0 || i % 5 === 4 ? "md:col-span-4" : "md:col-span-2"
               )}
             >
               <BentoCard app={app} index={i} />
@@ -52,7 +49,7 @@ export function AppsShowcase() {
   );
 }
 
-function BentoCard({ app, index }: { app: (typeof apps)[number]; index: number }) {
+function BentoCard({ app, index }: { app: EnrichedApp; index: number }) {
   const tone =
     app.accent === "gold"
       ? "from-gold-300/10 to-transparent"
@@ -62,7 +59,7 @@ function BentoCard({ app, index }: { app: (typeof apps)[number]; index: number }
 
   return (
     <Link
-      href={`#${app.slug}`}
+      href={`/apps/${app.slug}`}
       className="glass-panel glass-panel-hover group block h-full p-6 cursor-pointer"
     >
       <div
@@ -103,7 +100,7 @@ function AppDetailRow({
   index,
   reverse,
 }: {
-  app: (typeof apps)[number];
+  app: EnrichedApp;
   index: number;
   reverse: boolean;
 }) {
@@ -163,8 +160,8 @@ function AppDetailRow({
               <Play className="h-3.5 w-3.5 fill-current" />
               Try the demo
             </Link>
-            <Link href={app.externalUrl} className="group btn-secondary">
-              Open app
+            <Link href={`/apps/${app.slug}`} className="group btn-secondary">
+              Read more
               <ArrowUpRight className="h-4 w-4" />
             </Link>
           </div>
@@ -172,7 +169,7 @@ function AppDetailRow({
       </div>
 
       <div className={cn(reverse && "lg:order-1")}>
-        <AppMockup app={app} index={index} />
+        <AppMockup app={app} media={app.media} index={index} />
       </div>
     </article>
   );

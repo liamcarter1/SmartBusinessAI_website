@@ -1,0 +1,28 @@
+---
+title: "AI in the machine shop: making CNC programming approachable"
+excerpt: "Why CNC programming is the perfect proving ground for domain-specific AI assistants, and what we learned from the M32 analyser."
+date: "2026-02-04"
+category: "Manufacturing"
+---
+
+CNC programming sits in a peculiar place. It is mission-critical for any precision shop, deeply technical, and traditionally locked away in the heads of a small number of senior programmers. It is also, almost uniquely, *exactly the kind of work that benefits from a domain-tuned AI assistant.*
+
+## The shape of the problem
+
+A Citizen M32 sliding-head lathe is a remarkable machine. The programs that run it are dense, unforgiving, and full of conventions that take years to internalise. A misplaced block can crash a tool, scrap a part, or take a sub-spindle out of service for a shift.
+
+That combination — high stakes, narrow domain, deep convention — is what makes it a perfect target. The assistant does not need to be brilliant about everything; it needs to be reliably correct about one thing.
+
+## What we learned building the M32 analyser
+
+Three things stood out:
+
+1. **Domain context beats model size.** Feeding the model the specific G-code dialect, the tool library, and a corpus of vetted programs produced better, safer suggestions than a larger model with no domain priming.
+2. **Explanations matter as much as edits.** Programmers wanted "explain this block in plain English" almost more than "rewrite this block." The assistant's job was often to be a patient colleague, not a code generator.
+3. **Trust is built one cycle at a time.** Adoption did not come from a launch; it came from one programmer using the tool to validate a hunch, then telling another.
+
+## Where this goes
+
+CNC is the first domain. Every other corner of a precision manufacturing business has the same shape: dense convention, high stakes, deep institutional knowledge, narrow surface. Each of those is a candidate for a focused, reliable AI assistant — built by someone who has done the work, not theorised about it.
+
+That is the thesis the studio is pointed at.
