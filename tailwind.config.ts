@@ -18,6 +18,19 @@ const config: Config = {
           600: "#1E2A44",
           500: "#2B3A5C",
         },
+        // Brand navy — saturated, matches the logo
+        navy: {
+          50: "#EEF2F9",
+          100: "#D6DFEE",
+          200: "#A8BAD8",
+          300: "#7892BC",
+          400: "#4B6A9C",
+          500: "#314E7E",
+          600: "#1E3A5F",
+          700: "#152A45",
+          800: "#0F1F35",
+          900: "#0A1428",
+        },
         // Refined gold (accent)
         gold: {
           50: "#FBF6E9",

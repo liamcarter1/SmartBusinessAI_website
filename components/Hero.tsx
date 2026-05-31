@@ -50,7 +50,7 @@ export function Hero() {
           transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.15 }}
           className="mx-auto max-w-5xl text-center text-display-2xl font-medium text-balance"
         >
-          <span className="text-ink-900">Intelligent tools,</span>
+          <span className="text-navy-shine">Intelligent tools,</span>
           <br />
           <span className="font-display italic text-gold-shine">
             crafted for the work that matters.
@@ -107,7 +107,7 @@ export function Hero() {
             { k: "∞", l: "Iteration loops" },
           ].map((s) => (
             <div key={s.l} className="bg-white px-6 py-6 text-center">
-              <div className="font-display text-4xl text-ink-900 md:text-5xl">
+              <div className="font-display text-4xl text-navy-700 md:text-5xl">
                 {s.k}
               </div>
               <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.18em] text-ink-600">

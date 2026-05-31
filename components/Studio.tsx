@@ -64,10 +64,23 @@ export function Studio() {
               delay={i * 0.08}
               className="bg-white p-8 md:p-10"
             >
-              <div className="font-mono text-xs uppercase tracking-[0.22em] text-gold-600">
-                {p.n}
+              <div className="flex items-center gap-2">
+                <span
+                  className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[10px] font-semibold ${
+                    i % 2 === 0
+                      ? "bg-gold-100 text-gold-700 ring-1 ring-gold-300/60"
+                      : "bg-navy-50 text-navy-700 ring-1 ring-navy-300/60"
+                  }`}
+                >
+                  {p.n}
+                </span>
+                <span
+                  className={`h-px w-8 ${
+                    i % 2 === 0 ? "bg-gold-300/60" : "bg-navy-300/60"
+                  }`}
+                />
               </div>
-              <h3 className="mt-4 font-display text-2xl text-ink-900">
+              <h3 className="mt-5 font-display text-2xl text-ink-900">
                 {p.title}
               </h3>
               <p className="mt-3 text-[15px] leading-relaxed text-ink-700">

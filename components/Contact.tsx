@@ -65,7 +65,7 @@ export function Contact() {
               href={`mailto:${site.email}`}
               className="group flex items-center gap-4 rounded-2xl border border-ink-900/[0.08] bg-white p-5 shadow-[0_4px_12px_-6px_rgba(10,14,26,0.08)] transition-all duration-300 hover:border-gold-400/60 hover:shadow-[0_12px_24px_-8px_rgba(10,14,26,0.12)] cursor-pointer"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gold-100 text-gold-700">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-700 text-gold-300 shadow-[0_4px_12px_-4px_rgba(20,40,69,0.4)]">
                 <Mail className="h-4 w-4" />
               </div>
               <div className="flex-1">

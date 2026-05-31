@@ -112,10 +112,18 @@ function AppDetailRow({
       <div className={cn("space-y-6", reverse && "lg:order-2")}>
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-gold-600">
+            <span
+              className={`font-mono text-xs uppercase tracking-widest ${
+                index % 2 === 0 ? "text-gold-600" : "text-navy-600"
+              }`}
+            >
               0{index + 1}
             </span>
-            <span className="h-px flex-1 max-w-12 bg-gold-500/40" />
+            <span
+              className={`h-px flex-1 max-w-12 ${
+                index % 2 === 0 ? "bg-gold-500/40" : "bg-navy-500/40"
+              }`}
+            />
             <span className="text-xs uppercase tracking-[0.18em] text-ink-500">
               {app.category}
             </span>
@@ -129,7 +137,11 @@ function AppDetailRow({
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="font-display text-xl italic text-gold-600 md:text-2xl">
+          <p
+            className={`font-display text-xl italic md:text-2xl ${
+              index % 2 === 0 ? "text-gold-600" : "text-navy-600"
+            }`}
+          >
             {app.tagline}
           </p>
         </Reveal>
@@ -147,7 +159,11 @@ function AppDetailRow({
                 key={f}
                 className="flex items-start gap-3 text-ink-700"
               >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
+                <span
+                  className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${
+                    index % 2 === 0 ? "bg-gold-500" : "bg-navy-600"
+                  }`}
+                />
                 <span>{f}</span>
               </li>
             ))}
