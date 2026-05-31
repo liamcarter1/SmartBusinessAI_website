@@ -1,8 +1,9 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { apps } from "@/lib/apps";
 
 export function Hero() {
@@ -26,23 +27,42 @@ export function Hero() {
       />
 
       <div className="container-page relative">
+        {/* Brand card — featured logo */}
         <motion.div
-          initial={reduced ? false : { opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="mb-8 flex items-center justify-center"
+          initial={reduced ? false : { opacity: 0, y: 16, scale: 0.96 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98] }}
+          className="mb-12 flex justify-center"
         >
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-xs font-medium text-slate-300 backdrop-blur">
-            <Sparkles className="h-3 w-3 text-gold-300" />
-            <span>Now shipping {apps.length} AI products</span>
-            <span className="ml-1 h-1 w-1 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
-          </span>
+          <div className="relative">
+            {/* Halo glow */}
+            <div
+              className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-gold-300/30 via-transparent to-blue-500/20 opacity-70 blur-3xl"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute -inset-3 rounded-[1.5rem] bg-gold-300/10 opacity-60 blur-xl"
+              aria-hidden="true"
+            />
+
+            {/* Card */}
+            <div className="relative inline-flex items-center justify-center rounded-3xl border border-white/20 bg-slate-50/95 px-10 py-6 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.8)] backdrop-blur-xl md:px-14 md:py-8">
+              <Image
+                src="/smartbusinessAI_logo-removebg-preview.png"
+                alt="Smart Business AI"
+                width={703}
+                height={355}
+                priority
+                className="h-24 w-auto md:h-28"
+              />
+            </div>
+          </div>
         </motion.div>
 
         <motion.h1
           initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.1 }}
+          transition={{ duration: 0.9, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.15 }}
           className="mx-auto max-w-5xl text-center text-display-2xl font-medium text-balance"
         >
           <span className="text-slate-50">Intelligent tools,</span>
@@ -55,7 +75,7 @@ export function Hero() {
         <motion.p
           initial={reduced ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.3 }}
           className="mx-auto mt-8 max-w-2xl text-center text-lg leading-relaxed text-slate-300 text-balance md:text-xl"
         >
           Smart Business AI is an applied-AI studio designing and shipping
@@ -66,7 +86,7 @@ export function Hero() {
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.4 }}
+          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.45 }}
           className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
         >
           <Link href="#apps" className="group btn-primary">
@@ -79,11 +99,21 @@ export function Hero() {
           </Link>
         </motion.div>
 
+        <motion.div
+          initial={reduced ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-8 flex items-center justify-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-slate-400"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+          Now shipping {apps.length} AI products
+        </motion.div>
+
         {/* Stat row */}
         <motion.div
           initial={reduced ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.6 }}
+          transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98], delay: 0.75 }}
           className="mx-auto mt-24 grid max-w-3xl grid-cols-3 gap-px overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur"
         >
           {[
