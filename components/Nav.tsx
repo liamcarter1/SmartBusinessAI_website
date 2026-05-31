@@ -29,10 +29,10 @@ export function Nav() {
       >
         <nav
           className={cn(
-            "w-full max-w-[1240px] rounded-full border border-white/[0.06] px-4 py-2.5 transition-all duration-500 md:px-6",
+            "w-full max-w-[1240px] rounded-full border px-4 py-2.5 transition-all duration-500 md:px-6",
             scrolled
-              ? "bg-ink-900/70 backdrop-blur-xl border-white/[0.10] shadow-[0_8px_32px_-12px_rgba(0,0,0,0.6)]"
-              : "bg-ink-900/30 backdrop-blur-md"
+              ? "border-ink-900/10 bg-slate-50/95 backdrop-blur-xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]"
+              : "border-ink-900/[0.06] bg-slate-50/85 backdrop-blur-md shadow-[0_4px_24px_-12px_rgba(0,0,0,0.3)]"
           )}
         >
           <div className="flex items-center justify-between gap-4">
@@ -43,7 +43,7 @@ export function Nav() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="rounded-full px-4 py-2 text-sm text-slate-300 transition-colors duration-200 hover:bg-white/[0.05] hover:text-slate-50 cursor-pointer"
+                    className="rounded-full px-4 py-2 text-sm font-medium text-ink-800 transition-colors duration-200 hover:bg-ink-900/[0.06] hover:text-ink-950 cursor-pointer"
                   >
                     {item.label}
                   </Link>
@@ -54,7 +54,7 @@ export function Nav() {
             <div className="flex items-center gap-2">
               <Link
                 href="#contact"
-                className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-white/[0.06] border border-white/[0.08] px-4 py-2 text-sm font-medium text-slate-100 transition-all duration-200 hover:bg-white/[0.10] hover:border-white/[0.15] cursor-pointer"
+                className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-ink-900 px-4 py-2 text-sm font-medium text-slate-50 transition-all duration-200 hover:bg-ink-800 cursor-pointer"
               >
                 Start a project
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -62,7 +62,7 @@ export function Nav() {
               <button
                 aria-label={open ? "Close menu" : "Open menu"}
                 onClick={() => setOpen((o) => !o)}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-slate-100 transition-colors duration-200 hover:bg-white/[0.08] md:hidden cursor-pointer"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-900/10 bg-ink-900/[0.04] text-ink-800 transition-colors duration-200 hover:bg-ink-900/[0.08] md:hidden cursor-pointer"
               >
                 {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
               </button>
