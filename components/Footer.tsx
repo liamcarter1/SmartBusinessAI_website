@@ -10,7 +10,7 @@ export function Footer() {
       <div className="container-page">
         <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Logo />
+            <Logo size="footer" />
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-slate-400">
               {site.description}
             </p>
