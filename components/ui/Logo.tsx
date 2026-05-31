@@ -18,7 +18,7 @@ export function Logo({
       className={`inline-flex items-center ${className}`}
     >
       <Image
-        src="/logo.png"
+        src="/smartbusinessAI_logo.jpeg"
         alt="Smart Business AI"
         width={520}
         height={280}
