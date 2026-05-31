@@ -6,10 +6,11 @@ export function Logo({
   size = "nav",
 }: {
   className?: string;
-  /** "nav" = compact (h-10), "footer" = larger (h-14) */
+  /** "nav" = h-14 / md:h-16, "footer" = h-20 / md:h-24 */
   size?: "nav" | "footer";
 }) {
-  const heightClass = size === "footer" ? "h-14 md:h-16" : "h-10 md:h-11";
+  const heightClass =
+    size === "footer" ? "h-20 md:h-24" : "h-14 md:h-16";
 
   return (
     <Link
@@ -18,10 +19,10 @@ export function Logo({
       className={`inline-flex items-center ${className}`}
     >
       <Image
-        src="/smartbusinessAI_logo.jpeg"
+        src="/smartbusinessAI_logo.png"
         alt="Smart Business AI"
-        width={520}
-        height={280}
+        width={640}
+        height={340}
         priority={size === "nav"}
         className={`${heightClass} w-auto`}
       />
