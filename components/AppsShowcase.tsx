@@ -13,11 +13,11 @@ export function AppsShowcase({ apps }: { apps: EnrichedApp[] }) {
       <div className="container-page">
         <Reveal className="mx-auto max-w-3xl text-center">
           <p className="eyebrow justify-center">
-            <span className="h-px w-6 bg-gold-300/60" /> The Portfolio
+            <span className="h-px w-6 bg-gold-500/60" /> The Portfolio
           </p>
-          <h2 className="mt-5 text-display-lg font-medium text-balance text-slate-50">
+          <h2 className="mt-5 text-display-lg font-medium text-balance text-ink-900">
             {apps.length} apps in production.{" "}
-            <span className="font-display italic text-slate-400">
+            <span className="font-display italic text-ink-500">
               Each one solving a real, often unsexy, business problem.
             </span>
           </h2>
@@ -52,10 +52,10 @@ export function AppsShowcase({ apps }: { apps: EnrichedApp[] }) {
 function BentoCard({ app, index }: { app: EnrichedApp; index: number }) {
   const tone =
     app.accent === "gold"
-      ? "from-gold-300/10 to-transparent"
+      ? "from-gold-200/30 to-transparent"
       : app.accent === "blue"
-      ? "from-blue-400/10 to-transparent"
-      : "from-slate-300/10 to-transparent";
+      ? "from-blue-300/20 to-transparent"
+      : "from-slate-300/20 to-transparent";
 
   return (
     <Link
@@ -69,26 +69,26 @@ function BentoCard({ app, index }: { app: EnrichedApp; index: number }) {
 
       <div className="relative flex h-full flex-col">
         <div className="mb-6 flex items-center justify-between">
-          <span className="font-mono text-xs uppercase tracking-widest text-slate-500">
+          <span className="font-mono text-xs uppercase tracking-widest text-ink-500">
             0{index + 1}
           </span>
           <StatusPill status={app.status} />
         </div>
 
-        <h3 className="font-display text-2xl text-slate-50 md:text-3xl">
+        <h3 className="font-display text-2xl text-ink-900 md:text-3xl">
           {app.name}
         </h3>
-        <p className="mt-2 text-sm text-slate-400">{app.category}</p>
+        <p className="mt-2 text-sm text-ink-500">{app.category}</p>
 
-        <p className="mt-4 text-[15px] leading-relaxed text-slate-300">
+        <p className="mt-4 text-[15px] leading-relaxed text-ink-700">
           {app.tagline}
         </p>
 
         <div className="mt-auto flex items-center justify-between pt-8">
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-slate-500 transition-colors duration-300 group-hover:text-gold-300">
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-ink-500 transition-colors duration-300 group-hover:text-gold-600">
             View product
           </span>
-          <ArrowUpRight className="h-4 w-4 text-slate-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold-300" />
+          <ArrowUpRight className="h-4 w-4 text-ink-500 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-gold-600" />
         </div>
       </div>
     </Link>
@@ -112,30 +112,30 @@ function AppDetailRow({
       <div className={cn("space-y-6", reverse && "lg:order-2")}>
         <Reveal>
           <div className="flex items-center gap-3">
-            <span className="font-mono text-xs uppercase tracking-widest text-gold-300">
+            <span className="font-mono text-xs uppercase tracking-widest text-gold-600">
               0{index + 1}
             </span>
-            <span className="h-px flex-1 max-w-12 bg-gold-300/40" />
-            <span className="text-xs uppercase tracking-[0.18em] text-slate-400">
+            <span className="h-px flex-1 max-w-12 bg-gold-500/40" />
+            <span className="text-xs uppercase tracking-[0.18em] text-ink-500">
               {app.category}
             </span>
           </div>
         </Reveal>
 
         <Reveal delay={0.1}>
-          <h3 className="text-display-lg font-medium text-balance text-slate-50">
+          <h3 className="text-display-lg font-medium text-balance text-ink-900">
             {app.name}
           </h3>
         </Reveal>
 
         <Reveal delay={0.15}>
-          <p className="font-display text-xl italic text-gold-300/90 md:text-2xl">
+          <p className="font-display text-xl italic text-gold-600 md:text-2xl">
             {app.tagline}
           </p>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="text-[17px] leading-relaxed text-slate-300">
+          <p className="text-[17px] leading-relaxed text-ink-700">
             {app.longDescription}
           </p>
         </Reveal>
@@ -145,9 +145,9 @@ function AppDetailRow({
             {app.features.map((f) => (
               <li
                 key={f}
-                className="flex items-start gap-3 text-slate-300"
+                className="flex items-start gap-3 text-ink-700"
               >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-300" />
+                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-500" />
                 <span>{f}</span>
               </li>
             ))}
@@ -178,10 +178,10 @@ function AppDetailRow({
 function StatusPill({ status }: { status: string }) {
   const color =
     status === "Live"
-      ? "bg-emerald-400/15 text-emerald-300 border-emerald-400/20"
+      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
       : status === "Beta"
-      ? "bg-gold-300/15 text-gold-200 border-gold-300/20"
-      : "bg-slate-400/15 text-slate-300 border-slate-400/20";
+      ? "bg-gold-50 text-gold-700 border-gold-200"
+      : "bg-slate-100 text-ink-600 border-ink-900/10";
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider ${color}`}

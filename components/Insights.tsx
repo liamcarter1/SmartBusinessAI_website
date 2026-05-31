@@ -9,14 +9,17 @@ export function Insights({ posts }: { posts: PostMeta[] }) {
   if (posts.length === 0) return null;
 
   return (
-    <section id="insights" className="relative border-t border-white/[0.06] py-28 md:py-40">
+    <section
+      id="insights"
+      className="relative border-t border-ink-900/[0.08] py-28 md:py-40"
+    >
       <div className="container-page">
         <Reveal className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="max-w-xl">
             <p className="eyebrow">
-              <span className="h-px w-6 bg-gold-300/60" /> Insights
+              <span className="h-px w-6 bg-gold-500/60" /> Insights
             </p>
-            <h2 className="mt-5 text-display-lg font-medium text-balance text-slate-50">
+            <h2 className="mt-5 text-display-lg font-medium text-balance text-ink-900">
               Notes from the build floor.
             </h2>
           </div>
@@ -33,8 +36,8 @@ export function Insights({ posts }: { posts: PostMeta[] }) {
                 href={`/blog/${p.slug}`}
                 className="glass-panel glass-panel-hover group block h-full p-7 cursor-pointer"
               >
-                <div className="flex items-center justify-between text-xs text-slate-500">
-                  <span className="font-mono uppercase tracking-widest text-gold-300/80">
+                <div className="flex items-center justify-between text-xs text-ink-500">
+                  <span className="font-mono uppercase tracking-widest text-gold-600">
                     {p.category}
                   </span>
                   <time dateTime={p.date}>
@@ -46,17 +49,17 @@ export function Insights({ posts }: { posts: PostMeta[] }) {
                   </time>
                 </div>
 
-                <h3 className="mt-6 font-display text-2xl leading-tight text-slate-50 transition-colors duration-300 group-hover:text-gold-100">
+                <h3 className="mt-6 font-display text-2xl leading-tight text-ink-900 transition-colors duration-300 group-hover:text-gold-700">
                   {p.title}
                 </h3>
 
-                <p className="mt-3 text-[15px] leading-relaxed text-slate-400">
+                <p className="mt-3 text-[15px] leading-relaxed text-ink-600">
                   {p.excerpt}
                 </p>
 
-                <div className="mt-8 flex items-center justify-between text-xs text-slate-500">
+                <div className="mt-8 flex items-center justify-between text-xs text-ink-500">
                   <span>{p.readingTime} read</span>
-                  <span className="inline-flex items-center gap-1 transition-colors duration-300 group-hover:text-gold-300">
+                  <span className="inline-flex items-center gap-1 transition-colors duration-300 group-hover:text-gold-600">
                     Read
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                   </span>

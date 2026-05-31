@@ -31,8 +31,8 @@ export function Nav() {
           className={cn(
             "w-full max-w-[1240px] rounded-full border px-4 py-2.5 transition-all duration-500 md:px-6",
             scrolled
-              ? "border-ink-900/10 bg-slate-50/95 backdrop-blur-xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]"
-              : "border-ink-900/[0.06] bg-slate-50/85 backdrop-blur-md shadow-[0_4px_24px_-12px_rgba(0,0,0,0.3)]"
+              ? "border-ink-900/[0.08] bg-white/95 backdrop-blur-xl shadow-[0_12px_32px_-16px_rgba(10,14,26,0.18)]"
+              : "border-ink-900/[0.06] bg-white/80 backdrop-blur-md shadow-[0_8px_24px_-16px_rgba(10,14,26,0.12)]"
           )}
         >
           <div className="flex items-center justify-between gap-4">
@@ -78,7 +78,7 @@ export function Nav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-40 bg-ink-950/95 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-40 bg-white/95 backdrop-blur-2xl md:hidden"
             onClick={() => setOpen(false)}
           >
             <motion.ul
@@ -93,7 +93,7 @@ export function Nav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block py-3 font-display text-5xl text-slate-50 italic"
+                    className="block py-3 font-display text-5xl text-ink-900 italic"
                   >
                     {item.label}
                   </Link>
