@@ -32,7 +32,7 @@ export function Hero() {
           initial={reduced ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="mb-14 flex justify-center"
+          className="mb-12 flex justify-center"
         >
           <Image
             src="/smartbusinessAI_logo-removebg-preview.png"
@@ -40,7 +40,7 @@ export function Hero() {
             width={703}
             height={355}
             priority
-            className="h-24 w-auto md:h-32"
+            className="h-36 w-auto md:h-52"
           />
         </motion.div>
 
