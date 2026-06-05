@@ -13,9 +13,9 @@ export const site = {
     github: "",
   },
   nav: [
-    { label: "Apps", href: "#apps" },
-    { label: "Studio", href: "#studio" },
-    { label: "Insights", href: "#insights" },
-    { label: "Contact", href: "#contact" },
+    { label: "Apps", href: "/#apps" },
+    { label: "Studio", href: "/#studio" },
+    { label: "Insights", href: "/#insights" },
+    { label: "Contact", href: "/#contact" },
   ],
 };

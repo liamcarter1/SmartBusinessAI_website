@@ -53,7 +53,7 @@ export function Nav() {
 
             <div className="flex items-center gap-2">
               <Link
-                href="#contact"
+                href="/#contact"
                 className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-ink-900 px-4 py-2 text-sm font-medium text-slate-50 transition-all duration-200 hover:bg-ink-800 cursor-pointer"
               >
                 Start a project
@@ -101,7 +101,7 @@ export function Nav() {
               ))}
               <li className="mt-8">
                 <Link
-                  href="#contact"
+                  href="/#contact"
                   onClick={() => setOpen(false)}
                   className="group btn-primary"
                 >
