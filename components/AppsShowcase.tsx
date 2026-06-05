@@ -110,7 +110,12 @@ function AppDetailRow({
 
         <Reveal delay={0.3}>
           <div className="flex flex-wrap items-center gap-3 pt-4">
-            <Link href={app.demoUrl} className="group btn-primary">
+            <Link
+              href={app.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group btn-primary"
+            >
               <Play className="h-3.5 w-3.5 fill-current" />
               Try the demo
             </Link>

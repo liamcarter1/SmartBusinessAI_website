@@ -98,11 +98,21 @@ export default function AppDetailPage({
 
                 <Reveal delay={0.25}>
                   <div className="mt-10 flex flex-wrap items-center gap-3">
-                    <Link href={app.demoUrl} className="group btn-primary">
+                    <Link
+                      href={app.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group btn-primary"
+                    >
                       <Play className="h-3.5 w-3.5 fill-current" />
                       Try the demo
                     </Link>
-                    <Link href={app.externalUrl} className="group btn-secondary">
+                    <Link
+                      href={app.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group btn-secondary"
+                    >
                       Open app
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
@@ -187,7 +197,12 @@ export default function AppDetailPage({
                       Book a walkthrough
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
-                    <Link href={app.externalUrl} className="group btn-secondary">
+                    <Link
+                      href={app.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group btn-secondary"
+                    >
                       Open app
                       <ArrowUpRight className="h-4 w-4" />
                     </Link>
