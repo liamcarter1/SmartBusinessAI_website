@@ -67,6 +67,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  verification: {
+    other: {
+      "msvalidate.01": "018107B1BD412D5F07DC5DFCA261C428",
+    },
+  },
   robots: {
     index: true,
     follow: true,
