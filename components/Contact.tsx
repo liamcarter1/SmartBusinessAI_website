@@ -11,7 +11,7 @@ type Status = "idle" | "submitting" | "sent" | "error";
 
 export function Contact() {
   const [status, setStatus] = useState<Status>("idle");
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "", company: "" });
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -25,7 +25,7 @@ export function Contact() {
       });
       if (!res.ok) throw new Error("send failed");
       setStatus("sent");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", company: "" });
     } catch {
       setStatus("error");
     }
@@ -120,6 +120,28 @@ export function Contact() {
                 required
                 textarea
               />
+              {/* Honeypot — hidden from humans, bots usually fill it. */}
+              <div
+                aria-hidden="true"
+                style={{
+                  position: "absolute",
+                  left: "-9999px",
+                  width: 1,
+                  height: 1,
+                  overflow: "hidden",
+                }}
+              >
+                <label htmlFor="company">Company (leave blank)</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={form.company}
+                  onChange={(e) => setForm({ ...form, company: e.target.value })}
+                />
+              </div>
             </div>
 
             <div className="mt-8 flex items-center justify-between gap-4">
