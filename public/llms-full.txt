@@ -1,0 +1,147 @@
+# Smart Business AI
+
+> An applied-AI studio designing and shipping intelligent software for engineering, manufacturing and product teams.
+
+## About the studio
+
+Smart Business AI is a UK-based applied-AI studio building production-ready intelligent tools end-to-end — research, design, code, deployment and the long tail of iteration. Every product in the portfolio is built inside the studio by an operator who has worked in the problem domain it serves. No outsourced layers; no throwaway prototypes dressed up as products.
+
+### Studio principles
+
+1. **Domain before model.** The work starts with the actual problem inside the business — the machine shop, the engineering bench, the product backlog. The AI fits the work, not the other way around.
+2. **Ship the smallest useful thing.** Every product begins as a focused tool one person can use today. The studio earns the right to expand by being indispensable at one thing first.
+3. **Boring reliability over flashy demos.** Real businesses adopt tools that work the tenth time as well as the first. Designed for the long Tuesday afternoon, not the launch tweet.
+4. **Built by the operator.** Every app in the portfolio was built by someone who has worked the problem it solves — not theorised about it from a slide deck.
+
+### Contact
+
+- Website: https://smartbusinessai.co.uk
+- Email: liam.carter1@ntlworld.com
+- Location: United Kingdom (available worldwide, async-first)
+
+---
+
+## Portfolio — six AI applications
+
+### 1. RCA Flow
+
+**URL:** https://smartbusinessai.co.uk/apps/rca-flow
+**Live demo:** https://rca-flow-liamcarter15.replit.app
+**Category:** Operations · Quality
+**Status:** Live
+
+**Summary:** Root cause analysis, accelerated by AI.
+
+RCA Flow turns ad-hoc incident reviews into a repeatable, intelligence-augmented practice. Teams document failures inside a guided 5-Whys / Fishbone workflow while an embedded AI assistant cross-references symptoms, prior incidents and domain knowledge to propose likely causes — cutting investigation time and raising the quality of corrective actions.
+
+**Key features:**
+- Guided 5-Whys and Fishbone canvases
+- AI-generated cause hypotheses with confidence scoring
+- Cross-incident pattern detection
+- Exportable corrective action reports
+
+### 2. M32 Citizen CNC Program Analyser
+
+**URL:** https://smartbusinessai.co.uk/apps/m32-cnc-analyser
+**Category:** Manufacturing · CNC
+**Status:** Live
+
+**Summary:** Read, write and check CNC programs with AI assistance.
+
+Built for machinists and programmers running Citizen M32 sliding-head lathes. Upload a CNC program or a blueprint and the analyser explains every block, flags potential collisions, suggests cycle-time improvements and helps draft new programs from scratch — reducing setup time and protecting tooling.
+
+**Key features:**
+- Line-by-line CNC program explanation
+- Cycle-time and tool-path improvement suggestions
+- Blueprint → program drafting assistant
+- Citizen M32 specific G-code intelligence
+
+### 3. Ship It — App Builder
+
+**URL:** https://smartbusinessai.co.uk/apps/ship-it
+**Category:** AI Agents · DevTools
+**Status:** Beta
+
+**Summary:** From idea to deployed web app, agentically.
+
+Ship It compresses the entire 'first version' loop. Type the title of an app you want to exist; an autonomous agent designs the data model, generates the front-end, writes the API and pushes a live deployment to Vercel. Use it to validate ideas in minutes instead of weeks.
+
+**Key features:**
+- End-to-end agentic build pipeline
+- Automatic Vercel deployment
+- Editable generated codebase
+- Iterative refinement via natural language
+
+### 4. Hydraulics Calculator
+
+**URL:** https://smartbusinessai.co.uk/apps/hydraulics-calculator
+**Category:** Engineering · Tools
+**Status:** Live
+
+**Summary:** Pressures, flows and orifice sizing — instantly.
+
+Replace tattered reference sheets with an interface engineers actually enjoy using. The Hydraulics Calculator covers the core formulas distributors and design engineers reach for daily — laid out for keyboard speed, with clear unit handling and a memory of recent calculations.
+
+**Key features:**
+- Pressure, flow, orifice and velocity calculations
+- Imperial / metric unit handling
+- Keyboard-first workflow
+- Recent calculation history
+
+### 5. PRD Builder
+
+**URL:** https://smartbusinessai.co.uk/apps/prd-builder
+**Category:** Product · AI
+**Status:** Live
+
+**Summary:** Write a full software PRD — in minutes.
+
+PRD Builder interviews you about the product you want to build, then produces a rigorous Product Requirements Document alongside a tuned CLAUDE.md that gives downstream coding agents everything they need: goals, scope, data model, API contracts, milestones and edge cases.
+
+**Key features:**
+- Guided PRD interview flow
+- Generates paired CLAUDE.md planning file
+- Exports to Markdown, Notion and Linear
+- Tuned for agentic downstream builds
+
+### 6. Liam's Digital Twin
+
+**URL:** https://smartbusinessai.co.uk/apps/liam-digital-twin
+**Live demo:** https://liam-digital-twin.vercel.app
+**Category:** Personal · Chatbot
+**Status:** Live
+
+**Summary:** My career and experience, on tap.
+
+Liam's Digital Twin turns a static résumé into a dialogue. Trained on a structured career profile, it answers recruiter and collaborator questions in natural language — surfacing the most relevant experience for every question instead of forcing readers to skim a PDF.
+
+**Key features:**
+- Conversational answers about career and projects
+- Grounded in a structured profile — no fabrication
+- Suggested follow-up questions to keep the chat flowing
+- Embeddable on any portfolio or personal site
+
+---
+
+## Insights — long-form writing
+
+### Building agentic tooling that real businesses will actually use
+
+**URL:** https://smartbusinessai.co.uk/blog/building-agentic-tooling-for-real-businesses
+**Category:** Product
+
+Lessons from shipping AI products into manufacturing, engineering and operations — where reliability beats novelty every time. Covers why domain-tuned AI beats generic AI in real businesses, why "boring excellence" is the right design goal, and how to sequence usefulness → trust → expansion.
+
+### From PRD to deployed app in a weekend
+
+**URL:** https://smartbusinessai.co.uk/blog/from-prd-to-deployed-in-a-weekend
+**Category:** Engineering
+
+How a tightly scoped Product Requirements Document and a well-tuned CLAUDE.md collapses the gap between idea and live software. Explains why planning matters more (not less) when AI is in the loop, what to include in a PRD, and how a good CLAUDE.md transforms agent output.
+
+### AI in the machine shop: making CNC programming approachable
+
+**URL:** https://smartbusinessai.co.uk/blog/ai-in-the-machine-shop
+**Category:** Manufacturing
+
+Why CNC programming is the perfect proving ground for domain-specific AI assistants, and what was learned from the M32 analyser. Covers the high-stakes, narrow-domain, deep-convention shape of CNC work and why it's ideal for focused AI tools.

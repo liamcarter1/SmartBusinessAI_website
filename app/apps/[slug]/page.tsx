@@ -6,8 +6,11 @@ import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { AppMockup } from "@/components/AppMockup";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/Reveal";
+import { JsonLd } from "@/components/JsonLd";
 import { apps } from "@/lib/apps";
 import { getAppBySlug, getApps } from "@/lib/apps.server";
+import { site } from "@/lib/site";
+import { breadcrumbSchema, softwareApplicationSchema } from "@/lib/jsonld";
 
 export function generateStaticParams() {
   return apps.map((a) => ({ slug: a.slug }));
@@ -20,10 +23,28 @@ export function generateMetadata({
 }): Metadata {
   const app = getAppBySlug(params.slug);
   if (!app) return {};
+  const canonical = `${site.url}/apps/${app.slug}`;
   return {
     title: app.name,
     description: app.description,
+    keywords: [
+      app.name,
+      app.category,
+      ...app.features,
+      "applied AI",
+      "AI tool",
+      site.name,
+    ],
+    alternates: { canonical },
     openGraph: {
+      title: `${app.name} — ${site.name}`,
+      description: app.description,
+      url: canonical,
+      type: "website",
+      images: app.media.screenshotSrc ? [app.media.screenshotSrc] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
       title: app.name,
       description: app.description,
       images: app.media.screenshotSrc ? [app.media.screenshotSrc] : undefined,
@@ -45,6 +66,16 @@ export default function AppDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          softwareApplicationSchema(app, app.media.screenshotSrc),
+          breadcrumbSchema([
+            { name: "Home", url: site.url },
+            { name: "Apps", url: `${site.url}/#apps` },
+            { name: app.name, url: `${site.url}/apps/${app.slug}` },
+          ]),
+        ]}
+      />
       <Nav />
       <main className="relative">
         {/* Hero */}

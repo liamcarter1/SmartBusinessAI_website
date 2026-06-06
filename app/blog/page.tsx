@@ -1,12 +1,30 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { getPosts } from "@/lib/posts.server";
+import { site } from "@/lib/site";
 import { ArrowUpRight } from "lucide-react";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Insights",
-  description: "Writing from the build floor of Smart Business AI.",
+  description:
+    "Long-form writing from Smart Business AI — notes on applied AI, agentic tooling and shipping intelligent software for real businesses.",
+  keywords: [
+    "applied AI blog",
+    "AI engineering",
+    "agentic AI",
+    "AI for manufacturing",
+    "Smart Business AI insights",
+  ],
+  alternates: { canonical: `${site.url}/blog` },
+  openGraph: {
+    title: `Insights — ${site.name}`,
+    description:
+      "Long-form writing from Smart Business AI on applied AI and agentic tooling.",
+    url: `${site.url}/blog`,
+    type: "website",
+  },
 };
 
 export default async function BlogIndex() {

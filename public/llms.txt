@@ -1,0 +1,27 @@
+# Smart Business AI
+
+> An applied-AI studio designing and shipping intelligent software for engineering, manufacturing and product teams.
+
+Smart Business AI (smartbusinessai.co.uk) is a UK-based applied-AI studio building production-ready intelligent tools end-to-end — research, design, code, deployment. The studio focuses on domain-specific AI assistants for industries that have been historically underserved by generic AI tooling: precision manufacturing, hydraulics and engineering, root cause analysis, agentic app deployment, and personal knowledge interfaces.
+
+The portfolio includes six live AI products. Each is built by the same operator who has worked in the problem domain it serves.
+
+## Apps
+
+- [RCA Flow](https://smartbusinessai.co.uk/apps/rca-flow): AI-assisted root cause analysis. Guided 5-Whys and Fishbone canvases with AI hypothesis generation and cross-incident pattern detection.
+- [M32 Citizen CNC Program Analyser](https://smartbusinessai.co.uk/apps/m32-cnc-analyser): CNC program assistant for Citizen M32 sliding-head lathes — explains G-code, suggests cycle-time improvements, drafts programs from blueprints.
+- [Ship It — App Builder](https://smartbusinessai.co.uk/apps/ship-it): Agentic AI that takes a product idea and writes, packages and deploys a complete web application to Vercel.
+- [Hydraulics Calculator](https://smartbusinessai.co.uk/apps/hydraulics-calculator): Precision calculator for hydraulic engineers — pressures, flows, orifice sizing with imperial/metric handling.
+- [PRD Builder](https://smartbusinessai.co.uk/apps/prd-builder): Generates a complete Product Requirements Document plus a tuned CLAUDE.md planning file for agentic downstream builds.
+- [Liam's Digital Twin](https://smartbusinessai.co.uk/apps/liam-digital-twin): AI version of Liam, tuned to answer questions about his career and projects in natural conversation.
+
+## Insights
+
+- [Building agentic tooling that real businesses will actually use](https://smartbusinessai.co.uk/blog/building-agentic-tooling-for-real-businesses): Lessons from shipping AI into manufacturing, engineering and operations.
+- [From PRD to deployed app in a weekend](https://smartbusinessai.co.uk/blog/from-prd-to-deployed-in-a-weekend): How a tight PRD + a tuned CLAUDE.md collapses the gap between idea and live software.
+- [AI in the machine shop](https://smartbusinessai.co.uk/blog/ai-in-the-machine-shop): Why CNC programming is the perfect proving ground for domain-specific AI assistants.
+
+## Optional
+
+- [Studio principles](https://smartbusinessai.co.uk/#studio): How the studio works — domain before model, ship the smallest useful thing, reliability over flashy demos, built by the operator.
+- [Contact](https://smartbusinessai.co.uk/#contact): liam.carter1@ntlworld.com — for commissions, demos and partnership conversations.

@@ -1,12 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ArrowLeft } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { JsonLd } from "@/components/JsonLd";
 import { mdxComponents } from "@/components/mdx";
 import { getPost, getPosts } from "@/lib/posts.server";
+import { site } from "@/lib/site";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/jsonld";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -17,12 +21,29 @@ export async function generateMetadata({
   params,
 }: {
   params: { slug: string };
-}) {
+}): Promise<Metadata> {
   const post = await getPost(params.slug);
   if (!post) return {};
+  const canonical = `${site.url}/blog/${post.slug}`;
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: [post.category, "applied AI", site.name, post.title],
+    alternates: { canonical },
+    openGraph: {
+      title: `${post.title} — ${site.name}`,
+      description: post.excerpt,
+      url: canonical,
+      type: "article",
+      publishedTime: post.date,
+      authors: [site.name],
+      tags: [post.category],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
@@ -39,6 +60,16 @@ export default async function PostPage({
 
   return (
     <>
+      <JsonLd
+        data={[
+          blogPostingSchema(post, post.content.slice(0, 500)),
+          breadcrumbSchema([
+            { name: "Home", url: site.url },
+            { name: "Insights", url: `${site.url}/blog` },
+            { name: post.title, url: `${site.url}/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <Nav />
       <main className="pt-36 pb-28 md:pt-44">
         <article className="container-page max-w-3xl">
